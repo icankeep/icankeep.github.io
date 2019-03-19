@@ -85,9 +85,9 @@ author:
   bio              : "一个不会秃头的程序员"
   location         : "西安"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
-  email            :
+  pubmed           :
+  googlescholar    : "https://blog.csdn.net/coderDogg"
+  email            : "ipasser@sina.cn"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -114,7 +114,6 @@ author:
   xing             :
   youtube          :
   wikipedia        :
-  csdn             : "coderDogg"
 
 
 # Reading Files
