@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "passer / blog"
+title                    : "passer / Index"
 title_separator          : "-"
 name                     : &name "passer"
 description              : &description "This is the blog of passer"
@@ -102,18 +102,19 @@ author:
   instagram        :
   lastfm           :
   linkedin         :
-  orcid            : 
+  orcid            :
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : 
+  twitter          :
   vine             :
   weibo            : "u/3451211834"
   xing             :
   youtube          :
   wikipedia        :
+  csdn             : "coderDogg"
 
 
 # Reading Files
