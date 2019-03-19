@@ -6,11 +6,17 @@ main:
   - title: "Papers"
     url: /papers/
 
+  - title: "Teaching"
+    url: /teaching/
+
   - title: "Portfolio"
     url: /portfolio/
 
   - title: "Publications"
     url: /publications/
+
+  - title: "CV"
+    url: /cv/
 
   - title: "Guide"
     url: /markdown/
