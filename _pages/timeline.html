@@ -1,9 +1,10 @@
 ---
-permalink: /
+layout: archive
 title: "Timeline of passer"
-excerpt: "Timeline"
+permalink: /timeline/
 author_profile: true
-redirect_from:
-  - /timeline/
-  - /timeline.html
 ---
+
+{% for post in site.talks reversed %}
+  {% include archive-single-talk.html %}
+{% endfor %}
