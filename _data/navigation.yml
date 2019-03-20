@@ -3,8 +3,8 @@ main:
   - title: "Blog Posts"
     url: /year-archive/
 
-  - title: "Papers"
-    url: /papers/
+  - title: "Timeline"
+    url: /timeline/
 
   - title: "Teaching"
     url: /teaching/
