@@ -1,22 +1,22 @@
 ---
 permalink: /timeline/
-title: "Time of passer"
+title: "Timeline of passer"
 excerpt: "Timeline"
 author_profile: true
 redirect_from:
   - /timeline.html
 ---
-# Hello, 2019!
+
 ## To do
-### 💡 Java并发编程的艺术
-### 💻 NIO与网络编程
-### 🎨 Netty
-### 📚 Linux
-### ☁️ Redis设计与实现
-### ⭐️ Solr
-### ✏️ Kafka
-### 💾 Dubbo
-### ☕️ Zookeeper
+#### &ensp; 💡 Java并发编程的艺术
+#### &ensp; 💻 NIO与网络编程
+#### &ensp; 🎨 Netty
+#### &ensp; 📚 Linux
+#### &ensp; ☁️ Redis设计与实现
+#### &ensp; ⭐️ Solr
+#### &ensp; ✏️ Kafka
+#### &ensp; 💾 Dubbo
+#### &ensp; ☕️ Zookeeper
 
 ### March 20, 2019
 * LeetCode 5道编程题
@@ -25,8 +25,8 @@ redirect_from:
 * Github pull request to xuct leetcode
 * 开始着手阅读NIO与网络编程
 
-# Completed
-### 2019.3
-### 💡 深入理解Java虚拟机
-### 💻 剑指Offer 66道题
-### 🎨 深入浅出MySQL
+## Completed
+### &ensp; 2019.3
+### &ensp;&ensp; 💡 深入理解Java虚拟机
+### &ensp;&ensp; 💻 剑指Offer 66道题
+### &ensp;&ensp; 🎨 深入浅出MySQL
