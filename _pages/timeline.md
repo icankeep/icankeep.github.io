@@ -26,7 +26,6 @@ redirect_from:
 * 开始着手阅读NIO与网络编程
 
 ## Completed
-### &ensp; 2019.3
 ### &ensp;&ensp; 💡 深入理解Java虚拟机
 ### &ensp;&ensp; 💻 剑指Offer 66道题
 ### &ensp;&ensp; 🎨 深入浅出MySQL
