@@ -26,7 +26,6 @@ Hello, 2019!
 * 复习Spring Bean注入
 * Github pull request to xuct leetcode
 * 开始着手阅读NIO与网络编程
-
 ---
 ## Completed
 #### 2019.3
