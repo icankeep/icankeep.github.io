@@ -6,6 +6,6 @@ author_profile: true
 redirect_from:
   - /timeline.html
 ---
-
- Hello, 2019!
- ---
+:sun_with_face:
+Hello, 2019!
+---
