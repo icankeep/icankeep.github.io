@@ -8,4 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-:smile:
+ :sun_with_face: Java
