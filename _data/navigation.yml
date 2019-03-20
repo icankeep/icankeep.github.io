@@ -6,17 +6,17 @@ main:
   - title: "Timeline"
     url: /timeline/
 
-  - title: "Teaching"
-    url: /teaching/
+  - title: "Loading"
+    url: /
 
   - title: "Daily"
     url: /daily/
 
-  - title: "Publications"
-    url: /publications/
+  - title: "Loading"
+    url: /
 
-  - title: "CV"
-    url: /cv/
+  - title: "Loading"
+    url: /
 
-  - title: "Guide"
-    url: /markdown/
+  - title: "Loading"
+    url: /
