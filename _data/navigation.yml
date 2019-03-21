@@ -10,7 +10,7 @@ main:
     url: /
 
   - title: "Daily"
-    url: /daily/
+    url: /daily-year-archive/
 
   - title: "Loading"
     url: /

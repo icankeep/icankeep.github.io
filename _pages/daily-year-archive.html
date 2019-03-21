@@ -1,0 +1,19 @@
+---
+layout: archive
+permalink: /daily-year-archive/
+title: "Daily"
+author_profile: true
+redirect_from:
+  - /wordpress/daily/
+---
+
+{% include base_path %}
+{% capture written_year %}'None'{% endcapture %}
+{% for post in site.daily %}
+  {% capture year %}{{ daily.date | date: '%Y' }}{% endcapture %}
+  {% if year != written_year %}
+    <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
+    {% capture written_year %}{{ year }}{% endcapture %}
+  {% endif %}
+  {% include archive-single.html %}
+{% endfor %}
