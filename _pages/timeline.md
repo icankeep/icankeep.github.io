@@ -19,6 +19,15 @@ To Do List
 * 💾 Dubbo
 * ☕️ Zookeeper
 
+March 21, 2019
+---
+- 修复了timeline字体问题
+- Java并发编程的艺术阅读完毕 第10、11章
+- NIO与网络编程第1章部分
+- 就业指导简历及面试模拟
+- LeetCode 3道编程题（一道还未理解）
+- 复习了快排和归并
+
 March 20, 2019
 ---
 - LeetCode 5道编程题
