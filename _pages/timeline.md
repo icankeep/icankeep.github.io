@@ -9,15 +9,22 @@ redirect_from:
 <hr/>
 To Do List
 ===
-* 💡 Java并发编程的艺术
 * 💻 NIO与网络编程
 * 🎨 Netty
 * 📚 Linux
-* ☁️ Redis设计与实现
+* ☁️ Redis实现与设计
 * ⭐️ Solr
 * ✏️ Kafka
 * 💾 Dubbo
 * ☕️ Zookeeper
+
+March 21, 2019
+---
+- NIO与网络编程第1章阅读完毕
+- 鸟哥的Linux私房菜第1章阅读完毕
+- LeetCode 3道编程题
+- DocStorm基本功能完成，待完善（Bug较多）
+- 电脑装了双系统
 
 March 21, 2019
 ---
