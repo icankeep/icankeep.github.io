@@ -13,9 +13,9 @@ main:
     url: /daily-year-archive/
 
   - title: "Dev"
-    url: /dev
+    url: /dev-year-archive/
 
-  - title: "Loading"
+  - title: "Problem"
     url: /
 
   - title: "Loading"

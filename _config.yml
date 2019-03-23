@@ -175,7 +175,7 @@ collections:
   dev:
     output: true
     permalink: /:collection/:path/
-  mysite:
+  problems:
     output: true
     permalink: /:collection/:path/
   daily:
@@ -212,10 +212,10 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _mysite
+  # _problems
   - scope:
       path: ""
-      type: mysite
+      type: problems
     values:
       layout: single
       author_profile: true
