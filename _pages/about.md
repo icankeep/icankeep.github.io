@@ -21,6 +21,12 @@ redirect_from:
 * 记录我的日常生活
 * 一些照片
 
-### 🎨 Loading
-### 💾 Loading
+### 🎨 Dev
+* 记录DocStorm等网站的Bug更新和新特性
+* Bug List
+* New Features
+
+### 💾 ProblemList
+* 记录日常遇到的一些问题
+
 ### ☕️ Loading

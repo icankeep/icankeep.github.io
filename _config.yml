@@ -172,10 +172,10 @@ kramdown:
 
 # Collections
 collections:
-  teaching:
+  dev:
     output: true
     permalink: /:collection/:path/
-  publications:
+  mysite:
     output: true
     permalink: /:collection/:path/
   daily:
@@ -203,25 +203,25 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _teaching
+  # _dev
   - scope:
       path: ""
-      type: teaching
+      type: dev
     values:
       layout: single
       author_profile: true
       share: true
       comments: true
-  # _publications
+  # _mysite
   - scope:
       path: ""
-      type: publications
+      type: mysite
     values:
       layout: single
       author_profile: true
       share: true
       comments: true
-  # _portfolio
+  # _daily
   - scope:
       path: ""
       type: daily
