@@ -1,0 +1,44 @@
+{
+  "isMusician": false,
+  "userId": -1,
+  "topComments": [],
+  "moreHot": true,
+  "hotComments": [{
+    "user": {
+      "locationInfo": null,
+      "userId": 31188374,
+      "nickname": "若是归来去",
+      "vipType": 11,
+      "vipRights": {
+        "associator": {
+          "vipCode": 100,
+          "rights": true
+        },
+        "musicPackage": null,
+        "redVipAnnualCount": -1
+      },
+      "userType": 0,
+      "expertTags": null,
+      "authStatus": 0,
+      "avatarUrl": "http://p1.music.126.net/ikucPPb_dZt233xm-3vaww==/3393092927014246.jpg",
+      "experts": null,
+      "remarkName": null
+    },
+    "beReplied": [],
+    "pendantData": null,
+    "showFloorComment": null,
+    "status": 0,
+    "commentLocationType": 0,
+    "parentCommentId": 0,
+    "decoration": null,
+    "repliedMark": false,
+    "commentId": 238472796,
+    "liked": false,
+    "likedCount": 106934,
+    "expressionUrl": null,
+    "time": 1477836375609,
+    "content": "华晨宇，创作界的鬼才！"
+  }],
+  "total": 68637,
+  "more": true
+}
