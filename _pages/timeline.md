@@ -9,14 +9,14 @@ redirect_from:
 <hr/>
 To Do List
 ===
-* :rocket: SQL优化
+* 💾 SQL优化
 * 📚 Linux
 - ☕️ ZooKeeper
 * 🎨 Netty
 * ☁️ Redis设计与实现
 * ⭐️ Solr
 * ✏️ Kafka
-* 💾 Dubbo
+* 💻 Dubbo
 
 April 6, 2019（近期）
 ---
@@ -54,7 +54,7 @@ March 20, 2019
 Completed
 ---
 - 📚 DocStorm
-- :rocket: NIO与网络编程
+- ☁️ NIO与网络编程
 - ☕️ Java并发编程的艺术
 - 🎨 深入浅出MySQL
 - ✏️ 疯狂Java讲义精粹
