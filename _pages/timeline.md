@@ -9,7 +9,7 @@ redirect_from:
 <hr/>
 To Do List
 ===
-* :new_moon_with_face: SQL优化
+* :rocket: SQL优化
 * 📚 Linux
 - ☕️ ZooKeeper
 * 🎨 Netty
@@ -54,7 +54,7 @@ March 20, 2019
 Completed
 ---
 - 📚 DocStorm
-- :new_moon_with_face: NIO与网络编程
+- :rocket: NIO与网络编程
 - ☕️ Java并发编程的艺术
 - 🎨 深入浅出MySQL
 - ✏️ 疯狂Java讲义精粹
