@@ -18,6 +18,13 @@ To Do List
 * ✏️ Kafka
 * 💻 Dubbo
 
+April 10, 2019（近期）
+---
+- 鸟哥的Linux私房菜阅读至370页
+- LeetCode 刷到93题
+- ZooKeeper阅读完毕
+- Java并发编程的艺术 复习至50页
+
 April 6, 2019（近期）
 ---
 - NIO与网络编程阅读完毕

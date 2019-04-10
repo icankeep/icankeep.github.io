@@ -181,6 +181,12 @@ collections:
   daily:
     output: true
     permalink: /:collection/:path/
+  paper:
+    output: true
+    permalink: /:collection/:path/
+  share:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Defaults
@@ -225,6 +231,24 @@ defaults:
   - scope:
       path: ""
       type: daily
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _paper
+  - scope:
+      path: ""
+      type: paper
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _share
+  - scope:
+      path: ""
+      type: share
     values:
       layout: single
       author_profile: true

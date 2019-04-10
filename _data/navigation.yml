@@ -6,8 +6,8 @@ main:
   - title: "Timeline"
     url: /timeline/
 
-  - title: "Loading"
-    url: /
+  - title: "Paper"
+    url: /paper
 
   - title: "Daily"
     url: /daily-year-archive/
@@ -18,5 +18,5 @@ main:
   - title: "Problem"
     url: /
 
-  - title: "Loading"
-    url: /
+  - title: "Share"
+    url: /share
