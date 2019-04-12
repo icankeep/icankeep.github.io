@@ -17,6 +17,14 @@ To Do List
 * ⭐️ Solr
 * ✏️ Kafka
 * 💻 Dubbo
+* 高可用可伸缩微服务架构：基于Dubbo、SpringCloud和Service Mesh
+* 分布式消息中间件实践
+* 可伸缩服务架构 框架与中间件
+* 分布式系统设计
+* 数据通信与网络复习
+* Head First Java
+* 人工智能及其应用
+* 编译原理
 
 April 10, 2019（近期）
 ---
