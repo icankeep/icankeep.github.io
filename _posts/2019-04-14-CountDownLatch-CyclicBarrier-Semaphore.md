@@ -12,13 +12,13 @@ tags:
 三种同步辅助工具类
 
 ## CountDownLatch （倒计时器）
-> CountDownLatch是一个同步工具类，它允许一个或多个线程等待其他线程完成操作。
-  用给定的计数初始化CountDownLatch。由于调用了countDown()方法，所以在当前计数到达零之前，await()方法会一直受阻塞。之后，会释放所有等待的线程，await()的所有后续调用都将立即返回。这种现象只出现一次计数无法被重置。如果需要重置计数，请考虑使用 CyclicBarrier。
-  CountDownLatch 是一个通用同步工具，它有很多用途。将计数 1 初始化的 CountDownLatch 用作一个简单的开/关锁存器，或入口：在通过调用 countDown() 的线程打开入口前，所有调用 await 的线程都一直在入口处等待。用 N 初始化的 CountDownLatch 可以使一个线程在 N 个线程完成某项操作之前一直等待，或者使其在某项操作完成 N 次之前一直等待。
-  CountDownLatch 的一个有用特性是，它不要求调用countDown()方法的线程等到计数到达零时才继续，而在所有线程都能通过之前，它只是阻止任何线程继续通过一个await()。
+- CountDownLatch是一个同步工具类，它允许一个或多个线程等待其他线程完成操作。
+- 用给定的计数初始化CountDownLatch。由于调用了countDown()方法，所以在当前计数到达零之前，await()方法会一直受阻塞。之后，会释放所有等待的线程，await()的所有后续调用都将立即返回。这种现象只出现一次计数无法被重置。如果需要重置计数，请考虑使用 CyclicBarrier。
+- CountDownLatch是一个通用同步工具，它有很多用途。将计数1初始化的CountDownLatch用作一个简单的开/关锁存器，或入口：在通过调用countDown()的线程打开入口前，所有调用 await()的线程都一直在入口处等待。用N初始化的CountDownLatch可以使一个线程在N个线程完成某项操作之前一直等待，或者使其在某项操作完成N次之前一直等待。
+- CountDownLatch的一个有用特性是，它不要求调用countDown()方法的线程等到计数到达零时才继续，而在所有线程都能通过之前，它只是阻止任何线程继续通过一个await()。
 
 ### 常用方法
-```java
+```c
 CountDownLatch(int count) //构造一个用给定计数初始化的 CountDownLatch。
 void	await() //使当前线程在锁存器倒计数至零之前一直等待，除非线程被中断。
 boolean	await(long timeout, TimeUnit unit) //使当前线程在锁存器倒计数至零之前一直等待，除非线程被中断或超出了指定的等待时间。
@@ -102,7 +102,7 @@ CyclicBarrier(int parties) //创建一个新的 CyclicBarrier，它将在给定�
 CyclicBarrier(int parties, Runnable barrierAction) //创建一个新的 CyclicBarrier，它将在给定数量的参与者（线程）处于等待状态时启动，并在启动 barrier 时执行给定的屏障操作，该操作由最后一个进入 barrier 的线程执行。  
 ```
 - 普通方法
-```java
+```c
  int	await() //在所有参与者都已经在此 barrier 上调用 await 方法之前，将一直等待。
  int	await(long timeout, TimeUnit unit) //在所有参与者都已经在此屏障上调用 await 方法之前将一直等待,或者超出了指定的等待时间。
  int	getNumberWaiting() //返回当前在屏障处等待的参与者数目。
