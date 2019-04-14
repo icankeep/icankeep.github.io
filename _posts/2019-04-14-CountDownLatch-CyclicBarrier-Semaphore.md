@@ -83,7 +83,7 @@ public class CountDownLatchExample1 {
 
 CountDownLatch是一次性的，计数器的值只能在构造方法中初始化一次，之后没有任何机制再次对其设置值，当CountDownLatch使用完毕后，它不能再次被使用。
 
-### CountDownLatch相常见面试题：
+### CountDownLatch常见面试题：
 
 解释一下CountDownLatch概念？
 CountDownLatch 和CyclicBarrier的不同之处？
