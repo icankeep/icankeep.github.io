@@ -10,9 +10,9 @@ tags:
 
 synchronized 关键字使用、底层原理、JDK1.6之后的底层优化以及和ReenTrantLock 的对比
 
-![synchronized 关键字使用、底层原理、JDK1.6 之后的底层优化以及 和ReenTrantLock 的对比](https://github.com/icankeep/icankeep.github.io/tree/master/_images/blog/201904/synchronized.png)
+![synchronized 关键字使用、底层原理、JDK1.6 之后的底层优化以及 和ReenTrantLock 的对比](https://github.com/icankeep/icankeep.github.io/tree/master/images/blog/201904/synchronized.png)
 
-### synchronized关键字最主要的三种使用方式的总结
+### synchronized关键字主要的三种使用方式的总结
 
 - **修饰实例方法，作用于当前对象实例加锁，进入同步代码前要获得当前对象实例的锁**
 - **修饰静态方法，作用于当前类对象(当前类class对象)加锁，进入同步代码前要获得当前类对象的锁** 。也就是给当前类加锁，会作用于类的所有对象实例，因为静态成员不属于任何一个实例对象，是类成员（ static 表明这是该类的一个静态资源，不管new了多少个对象，只有一份，所以对该类的所有对象都加了锁）。所以如果一个线程A调用一个实例对象的非静态 synchronized 方法，而线程B需要调用这个实例对象所属类的静态 synchronized 方法，是允许的，不会发生互斥现象，**因为访问静态 synchronized 方法占用的锁是当前类的锁，而访问非静态 synchronized 方法占用的锁是当前实例对象锁**。
