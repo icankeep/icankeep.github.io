@@ -10,6 +10,8 @@ tags:
 
 synchronized 关键字使用、底层原理、JDK1.6之后的底层优化以及和ReenTrantLock 的对比
 
+![synchronized 关键字使用、底层原理、JDK1.6 之后的底层优化以及 和ReenTrantLock 的对比](https://github.com/icankeep/icankeep.github.io/tree/master/_images/blog/201904/synchronized.png)
+
 ### synchronized关键字最主要的三种使用方式的总结
 
 - **修饰实例方法，作用于当前对象实例加锁，进入同步代码前要获得当前对象实例的锁**
