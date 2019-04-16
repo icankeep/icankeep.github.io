@@ -10,7 +10,7 @@ tags:
 
 synchronized 关键字使用、底层原理、JDK1.6之后的底层优化以及和ReenTrantLock 的对比
 
-![synchronized 关键字使用、底层原理、JDK1.6 之后的底层优化以及 和ReenTrantLock 的对比](../_images/201904/synchronized.png)
+![synchronized 关键字使用、底层原理、JDK1.6 之后的底层优化以及 和ReenTrantLock 的对比](../_images/blog/201904/synchronized.png)
 
 ### synchronized关键字最主要的三种使用方式的总结
 
