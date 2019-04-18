@@ -61,6 +61,8 @@
 
 # 一、线程状态转换
 
+参考Java并发编程的艺术89页图
+
 <div align="center"> <img src="https://gitee.com/CyC2018/CS-Notes/raw/master/docs/pics/96706658-b3f8-4f32-8eb3-dcb7fc8d5381.jpg"/> </div><br>
 
 ## 新建（New）
@@ -76,6 +78,7 @@
 ## 阻塞（Blocked）
 
 等待获取一个排它锁，如果其线程释放了锁就会结束此状态。
+> Java将操作系统中的运行和就绪两个状态合并称为运行状态。阻塞状态是线程阻塞在进入synchronized关键字修饰的方法或代码块（获取锁）时的状态，但在阻塞在java.util.concurrent包下的Lock接口的线程状态却是等待状态，因为包中Lock接口对于阻塞的实现均使用了LockSupport类中的相关方法。
 
 ## 无限期等待（Waiting）
 
@@ -87,7 +90,7 @@
 | 没有设置 Timeout 参数的 Thread.join() 方法 | 被调用的线程执行完毕 |
 | LockSupport.park() 方法 | LockSupport.unpark(Thread) |
 
-## 限期等待（Timed Waiting）
+## 限期等待（Time_Waiting）
 
 无需等待其它线程显式地唤醒，在一定时间之后会被系统自动唤醒。
 
@@ -234,9 +237,11 @@ public static void main(String[] args) {
 
 ## sleep()
 
-Thread.sleep(millisec) 方法会休眠当前正在执行的线程，millisec 单位为毫秒。
+Thread.sleep(long millis) 方法会休眠当前正在执行的线程，millisec 单位为毫秒。
 
 sleep() 可能会抛出 InterruptedException，因为异常不能跨线程传播回 main() 中，因此必须在本地进行处理。线程中抛出的其它异常也同样需要在本地进行处理。
+
+当线程在睡眠时被中断，在抛出InterruptedException之前，Java虚拟机会先将该线程的中断标识位清除，然后抛出InterruptedException,此时调用isInterrupted()方法会返回false。
 
 ```java
 public void run() {
@@ -248,14 +253,73 @@ public void run() {
 }
 ```
 
-## yield()
+## suspend()、resume()和stop()
+这三个方法分别可以实现线程的暂停、恢复和停止，不过已经过时，不建议使用。
 
+不建议使用的原因主要有：以suspend()方法为例，在调用后，线程不会释放已经占有的资源(比如锁)，而是占有着资源进入睡眠状态，这样容易引发死锁问题。同样，stop()方法在终结一个线程时不会保证线程的资源正确释放，通常是没有给予线程完成资源释放工作的机会，因此会导致程序可能工作在不确定状态下。可以使用等待/通知机制代替。
+
+## wait()、notify()和notifyAll()
+1. 使用这三个方法时需要先对对象加锁。
+2. 调用wait()方法后，线程状态由RUNNING变为WAITING，并将当前线程放置到对象的等待队列。
+3. notify()或notifyAll()方法调用后，等待线程依旧不会从wait()返回，需要调用notify()或notifyAll()的线程释放锁之后，等待线程才有机会从wait()返回。
+4. notify()方法将等待队列中的一个等待线程从等待队列中移到同步队列中，而notifyAll()方法则是将等待队列中所有的线程全部移到同步队列，被移动的线程状态由WAITING变为BLOCKED。
+5. 从wait()方法返回的前提是获得了调用对象的锁。
+
+## 等待/通知的经典范式
+等待方遵循如下规则：
+1. 获取对象的锁
+2. 如果条件不满足，那么调用对象的wait()的方法，被通知后仍要检查条件。
+3. 条件满足则执行对应的逻辑
+
+```java
+synchronized(对象){
+  while(条件不满足) {
+    对象.wait();
+  }
+  对应的处理逻辑;
+}
+```
+
+通知方遵循如下原则：
+1. 获取对象的锁
+2. 改变条件
+3. 通知所有等待在对象上的线程
+
+```java
+synchronized(对象){
+  改变条件;
+  对象.notifyall();
+}
+```
+
+## Thread.yield()(静态方法)
 对静态方法 Thread.yield() 的调用声明了当前线程已经完成了生命周期中最重要的部分，可以切换给其它线程来执行。该方法只是对线程调度器的一个建议，而且也只是建议具有相同优先级的其它线程可以运行。
 
 ```java
 public void run() {
     Thread.yield();
 }
+```
+## thread.join()的使用
+如果一个线程A执行了thread.join()语句，其含义是：当前线程A等待thread线程终止之后才从thread.join()返回。
+
+```java
+thread.join();
+thread.join(long millis);
+thread.join(long millis,int nanos);
+```
+
+## ThreadLocal的使用
+ThreadLocal即线程变量，是一个以ThreadLocal对象为键、任意对象为值的存储结构。为指定线程生成一个专有副本
+
+可以通过set(T)方法设置一个值，在当前线程下在通过get()方法获取到原先设置的值。
+
+```java
+private static final ThreadLocal<Long> time = new ThreadLocal<Long>() {
+  protected Long initialValue() {
+    return System.currentTimeMillis();
+  }
+};
 ```
 
 # 四、中断
@@ -380,191 +444,7 @@ future.cancel(true);
 
 # 五、互斥同步
 
-Java 提供了两种锁机制来控制多个线程对共享资源的互斥访问，第一个是 JVM 实现的 synchronized，而另一个是 JDK 实现的 ReentrantLock。
-
-## synchronized
-
-**1. 同步一个代码块** 
-
-```java
-public void func() {
-    synchronized (this) {
-        // ...
-    }
-}
-```
-
-它只作用于同一个对象，如果调用两个对象上的同步代码块，就不会进行同步。
-
-对于以下代码，使用 ExecutorService 执行了两个线程，由于调用的是同一个对象的同步代码块，因此这两个线程会进行同步，当一个线程进入同步语句块时，另一个线程就必须等待。
-
-```java
-public class SynchronizedExample {
-
-    public void func1() {
-        synchronized (this) {
-            for (int i = 0; i < 10; i++) {
-                System.out.print(i + " ");
-            }
-        }
-    }
-}
-```
-
-```java
-public static void main(String[] args) {
-    SynchronizedExample e1 = new SynchronizedExample();
-    ExecutorService executorService = Executors.newCachedThreadPool();
-    executorService.execute(() -> e1.func1());
-    executorService.execute(() -> e1.func1());
-}
-```
-
-```html
-0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
-```
-
-对于以下代码，两个线程调用了不同对象的同步代码块，因此这两个线程就不需要同步。从输出结果可以看出，两个线程交叉执行。
-
-```java
-public static void main(String[] args) {
-    SynchronizedExample e1 = new SynchronizedExample();
-    SynchronizedExample e2 = new SynchronizedExample();
-    ExecutorService executorService = Executors.newCachedThreadPool();
-    executorService.execute(() -> e1.func1());
-    executorService.execute(() -> e2.func1());
-}
-```
-
-```html
-0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9
-```
-
-
-**2. 同步一个方法** 
-
-```java
-public synchronized void func () {
-    // ...
-}
-```
-
-它和同步代码块一样，作用于同一个对象。
-
-**3. 同步一个类** 
-
-```java
-public void func() {
-    synchronized (SynchronizedExample.class) {
-        // ...
-    }
-}
-```
-
-作用于整个类，也就是说两个线程调用同一个类的不同对象上的这种同步语句，也会进行同步。
-
-```java
-public class SynchronizedExample {
-
-    public void func2() {
-        synchronized (SynchronizedExample.class) {
-            for (int i = 0; i < 10; i++) {
-                System.out.print(i + " ");
-            }
-        }
-    }
-}
-```
-
-```java
-public static void main(String[] args) {
-    SynchronizedExample e1 = new SynchronizedExample();
-    SynchronizedExample e2 = new SynchronizedExample();
-    ExecutorService executorService = Executors.newCachedThreadPool();
-    executorService.execute(() -> e1.func2());
-    executorService.execute(() -> e2.func2());
-}
-```
-
-```html
-0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
-```
-
-**4. 同步一个静态方法** 
-
-```java
-public synchronized static void fun() {
-    // ...
-}
-```
-
-作用于整个类。
-
-## ReentrantLock
-
-ReentrantLock 是 java.util.concurrent（J.U.C）包中的锁。
-
-```java
-public class LockExample {
-
-    private Lock lock = new ReentrantLock();
-
-    public void func() {
-        lock.lock();
-        try {
-            for (int i = 0; i < 10; i++) {
-                System.out.print(i + " ");
-            }
-        } finally {
-            lock.unlock(); // 确保释放锁，从而避免发生死锁。
-        }
-    }
-}
-```
-
-```java
-public static void main(String[] args) {
-    LockExample lockExample = new LockExample();
-    ExecutorService executorService = Executors.newCachedThreadPool();
-    executorService.execute(() -> lockExample.func());
-    executorService.execute(() -> lockExample.func());
-}
-```
-
-```html
-0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
-```
-
-
-## 比较
-
-**1. 锁的实现** 
-
-synchronized 是 JVM 实现的，而 ReentrantLock 是 JDK 实现的。
-
-**2. 性能** 
-
-新版本 Java 对 synchronized 进行了很多优化，例如自旋锁等，synchronized 与 ReentrantLock 大致相同。
-
-**3. 等待可中断** 
-
-当持有锁的线程长期不释放锁的时候，正在等待的线程可以选择放弃等待，改为处理其他事情。
-
-ReentrantLock 可中断，而 synchronized 不行。
-
-**4. 公平锁** 
-
-公平锁是指多个线程在等待同一个锁时，必须按照申请锁的时间顺序来依次获得锁。
-
-synchronized 中的锁是非公平的，ReentrantLock 默认情况下也是非公平的，但是也可以是公平的。
-
-**5. 锁绑定多个条件** 
-
-一个 ReentrantLock 可以同时绑定多个 Condition 对象。
-
-## 使用选择
-
-除非需要使用 ReentrantLock 的高级功能，否则优先使用 synchronized。这是因为 synchronized 是 JVM 实现的一种锁机制，JVM 原生地支持它，而 ReentrantLock 不是所有的 JDK 版本都支持。并且使用 synchronized 不用担心没有释放锁而导致死锁问题，因为 JVM 会确保锁的释放。
+synchronized、ReentrantLock和Semaphore
 
 # 六、线程之间的协作
 
@@ -669,10 +549,11 @@ before
 after
 ```
 
-**wait() 和 sleep() 的区别** 
+**wait() 和 sleep() 的区别**
 
 - wait() 是 Object 的方法，而 sleep() 是 Thread 的静态方法；
 - wait() 会释放锁，sleep() 不会。
+- 都会让出cpu时间片
 
 ## await() signal() signalAll()
 
@@ -726,131 +607,7 @@ before
 after
 ```
 
-# 七、J.U.C - AQS
-
-java.util.concurrent（J.U.C）大大提高了并发性能，AQS 被认为是 J.U.C 的核心。
-
-## CountDownLatch
-
-用来控制一个线程等待多个线程。
-
-维护了一个计数器 cnt，每次调用 countDown() 方法会让计数器的值减 1，减到 0 的时候，那些因为调用 await() 方法而在等待的线程就会被唤醒。
-
-<div align="center"> <img src="https://gitee.com/CyC2018/CS-Notes/raw/master/docs/pics/912a7886-fb1d-4a05-902d-ab17ea17007f.jpg"/> </div><br>
-
-```java
-public class CountdownLatchExample {
-
-    public static void main(String[] args) throws InterruptedException {
-        final int totalThread = 10;
-        CountDownLatch countDownLatch = new CountDownLatch(totalThread);
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        for (int i = 0; i < totalThread; i++) {
-            executorService.execute(() -> {
-                System.out.print("run..");
-                countDownLatch.countDown();
-            });
-        }
-        countDownLatch.await();
-        System.out.println("end");
-        executorService.shutdown();
-    }
-}
-```
-
-```html
-run..run..run..run..run..run..run..run..run..run..end
-```
-
-## CyclicBarrier
-
-用来控制多个线程互相等待，只有当多个线程都到达时，这些线程才会继续执行。
-
-和 CountdownLatch 相似，都是通过维护计数器来实现的。线程执行 await() 方法之后计数器会减 1，并进行等待，直到计数器为 0，所有调用 await() 方法而在等待的线程才能继续执行。
-
-CyclicBarrier 和 CountdownLatch 的一个区别是，CyclicBarrier 的计数器通过调用 reset() 方法可以循环使用，所以它才叫做循环屏障。
-
-CyclicBarrier 有两个构造函数，其中 parties 指示计数器的初始值，barrierAction 在所有线程都到达屏障的时候会执行一次。
-
-```java
-public CyclicBarrier(int parties, Runnable barrierAction) {
-    if (parties <= 0) throw new IllegalArgumentException();
-    this.parties = parties;
-    this.count = parties;
-    this.barrierCommand = barrierAction;
-}
-
-public CyclicBarrier(int parties) {
-    this(parties, null);
-}
-```
-
-<div align="center"> <img src="https://gitee.com/CyC2018/CS-Notes/raw/master/docs/pics/f944fac3-482b-4ca3-9447-17aec4a3cca0.png"/> </div><br>
-
-```java
-public class CyclicBarrierExample {
-
-    public static void main(String[] args) {
-        final int totalThread = 10;
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(totalThread);
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        for (int i = 0; i < totalThread; i++) {
-            executorService.execute(() -> {
-                System.out.print("before..");
-                try {
-                    cyclicBarrier.await();
-                } catch (InterruptedException | BrokenBarrierException e) {
-                    e.printStackTrace();
-                }
-                System.out.print("after..");
-            });
-        }
-        executorService.shutdown();
-    }
-}
-```
-
-```html
-before..before..before..before..before..before..before..before..before..before..after..after..after..after..after..after..after..after..after..after..
-```
-
-## Semaphore
-
-Semaphore 类似于操作系统中的信号量，可以控制对互斥资源的访问线程数。
-
-以下代码模拟了对某个服务的并发请求，每次只能有 3 个客户端同时访问，请求总数为 10。
-
-```java
-public class SemaphoreExample {
-
-    public static void main(String[] args) {
-        final int clientCount = 3;
-        final int totalRequestCount = 10;
-        Semaphore semaphore = new Semaphore(clientCount);
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        for (int i = 0; i < totalRequestCount; i++) {
-            executorService.execute(()->{
-                try {
-                    semaphore.acquire();
-                    System.out.print(semaphore.availablePermits() + " ");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
-                    semaphore.release();
-                }
-            });
-        }
-        executorService.shutdown();
-    }
-}
-```
-
-```html
-2 1 2 2 2 2 2 1 2 2
-```
-
-# 八、J.U.C - 其它组件
-
+# 七、J.U.C - 其它组件
 ## FutureTask
 
 在介绍 Callable 时我们知道它可以有返回值，返回值通过 Future<V> 进行封装。FutureTask 实现了 RunnableFuture 接口，该接口继承自 Runnable 和 Future<V> 接口，这使得 FutureTask 既可以当做一个任务执行，也可以有返回值。
@@ -912,7 +669,7 @@ java.util.concurrent.BlockingQueue 接口有以下阻塞队列的实现：
 
 提供了阻塞的 take() 和 put() 方法：如果队列为空 take() 将阻塞，直到队列中有内容；如果队列为满 put() 将阻塞，直到队列有空闲位置。
 
-**使用 BlockingQueue 实现生产者消费者问题** 
+**使用 BlockingQueue 实现生产者消费者问题**
 
 ```java
 public class ProducerConsumer {
