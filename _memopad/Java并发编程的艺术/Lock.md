@@ -290,3 +290,86 @@ static final class Node {
 - 设置首节点是通过获取同步状态成功的线程来完成的，由于只有一个线程能够成功获取到同步状态，因此设置头节点的方法并不需要使用CAS保证，它只需要将首节点设置成为原首节点的后继节点并断开原首节点的next引用即可。
 
 **2.独占式同步状态获取与释放**
+
+可能调用的方法
+```java
+acquire(int arg);
+tryAcquire(int arg);
+setHead(node);
+acquireQueued(addWait(NOde.EXCLUSIVE,arg));
+enq(final Node node);
+release(int arg);
+tryRelease(int arg);
+unparkSuccessor(NOde node);
+```
+
+**总结**
+在获取同步状态时，同步器维护了一个同步队列，获取状态失败的线程都会被加入到队列中进行自旋；移出队列（或停止自旋）的条件是前驱节点为头节点且当前节点成功获取了同步状态。在释放同步状态时，同步器调用tryRelease(int arg)方法来释放同步状态，然后唤醒头节点的后继节点
+
+**3.共享式同步状态获取与释放**
+
+共享式与独占式最主要的区别在于同一时刻能否有多个线程同时获取到同步状态
+
+可能调用的方法
+```java
+acquireShared(int arg);
+doAcquireShared(int arg);
+addWaiter(Node.SHARED)
+tryAcquireShared(int arg);
+setHeadAndPropagate(node,r);
+releaseShared(int arg);
+tryReleaseShared(int arg);
+```
+
+## 重入锁
+
+### ReentrantLock
+
+**公平锁**
+锁的获取顺序符合请求的绝对时间顺序，即FIFO
+
+**非公平锁**
+锁的获取顺序和请求时间无直接关系，容易造成“饥饿”
+
+### synchronized
+
+## 读写锁
+**ReentrantReadWriteLock**
+- 公平性选择
+- 重进入
+- 锁降级，遵循获取写锁，获取读锁再释放写锁的次序，写锁能够降级成为读锁
+
+## LockSupport工具
+```java
+void park(); //阻塞当前线程，如果调用unpark(Thread thread)方法或者当前线程被中断，才能从park()方法返回
+void parkNanos(long nanos); //阻塞当前线程，最长不超过nanos纳秒，返回条件在park()的基础上增加了超时返回
+void parkUtil(long deadline); //阻塞当前线程，直到deadline时间
+void unpark(Thread thread); //唤醒处于阻塞状态的线程thread
+```
+
+## Condition接口
+
+**使用实例**
+```java
+Condition condition = lock.newCondition();
+condition.await();
+condition.signal();
+```
+**部分方法**
+
+`void await() throws InterruptedException;`
+当前线程进入等待状态直到被通知或中断，当前线程进入运行状态且从await()方法返回的情况，包括：
+- 其他线程调用该Condition的signal()或signalALl()方法，而当前线程被选中唤醒
+- 其他线程中断当前线程
+- 如果当前等待线程从await()方法返回，那么表明该线程已经获取了Condition对象所对应的锁
+
+```java
+void awaitUninterruptibly(); //对中断不敏感
+long awaitNanos(long nanosTimeout);
+boolean awaitUntil(Date deadline) throws InterruptedException; //如果没有到指定时间就被通知返回true，否则返回false
+void signal();
+void signalAll();
+```
+
+**并发包中的Lock拥有一个同步队列和多个等待队列**
+同步器内部存在一个实现Condition接口的内部类，因此每个Condition实例能够访问同步器提供的方法，相当于每个Condition都拥有所属同步器的引用
