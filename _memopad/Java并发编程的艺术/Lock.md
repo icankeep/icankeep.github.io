@@ -356,8 +356,9 @@ condition.await();
 condition.signal();
 ```
 **部分方法**
-
-`void await() throws InterruptedException;`
+```java
+void await() throws InterruptedException;
+```
 当前线程进入等待状态直到被通知或中断，当前线程进入运行状态且从await()方法返回的情况，包括：
 - 其他线程调用该Condition的signal()或signalALl()方法，而当前线程被选中唤醒
 - 其他线程中断当前线程
