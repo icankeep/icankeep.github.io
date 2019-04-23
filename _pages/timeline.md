@@ -16,15 +16,25 @@ To Do List
 * ☁️ Redis设计与实现
 * ⭐️ Solr
 * ✏️ Kafka
-* 💻 Dubbo
-* 高可用可伸缩微服务架构：基于Dubbo、SpringCloud和Service Mesh
+* 编译原理
 * 分布式消息中间件实践
 * 可伸缩服务架构 框架与中间件
 * 分布式系统设计
 * 数据通信与网络复习
 * Head First Java
 * 人工智能及其应用
-* 编译原理
+* 高可用可伸缩微服务架构：基于Dubbo、SpringCloud和Service Mesh
+
+April 23, 2019（近期）
+---
+- 鸟哥的Linux私房菜阅读完毕
+- LeetCode刷完已开始整理
+- Redis第二部分阅读完毕
+- 计算机网络谢希仁阅读至80页
+- 分布式系统概念与设计阅读至第五章
+- Java并发编程艺术大部分整理完毕
+- 软件设计师教程着手阅读
+- 网易云音乐数据分析项目整理
 
 April 10, 2019（近期）
 ---
@@ -68,10 +78,12 @@ March 20, 2019
 
 Completed
 ---
-- 📚 DocStorm
-- ☁️ NIO与网络编程
-- ☕️ Java并发编程的艺术
-- 🎨 深入浅出MySQL
-- ✏️ 疯狂Java讲义精粹
-- 💡 深入理解Java虚拟机
-- 💻 剑指Offer 66道题
+- 鸟哥的Linux私房菜
+- 从Paxos到Zookeeper:分布式一致性原理与实践
+- DocStorm
+- NIO与网络编程
+- Java并发编程的艺术
+- 深入浅出MySQL
+- 疯狂Java讲义精粹
+- 深入理解Java虚拟机
+- 剑指Offer 66道题
