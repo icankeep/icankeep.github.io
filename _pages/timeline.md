@@ -23,6 +23,8 @@ To Do List
 * 数据通信与网络复习
 * Head First Java
 * 人工智能及其应用
+* Nginx
+* Maven实战
 * 高可用可伸缩微服务架构：基于Dubbo、SpringCloud和Service Mesh
 
 April 23, 2019（近期）
