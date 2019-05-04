@@ -27,11 +27,12 @@ To Do List
 * Head First Java / Effective Java / Java编程思想
 * Linux内核及程序设计(Linux命令复习)
 * 高可用可伸缩微服务架构：基于Dubbo、SpringCloud和Service Mesh
+<!--
 * Nginx
 * Netty
 * Solr
 * Kafka
-
+-->
 May 4,2019 (近期)
 ---
 - 计算机网络大致阅读完毕(待二次整理)
