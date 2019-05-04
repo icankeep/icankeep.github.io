@@ -28,12 +28,10 @@ To Do List
 * Linux内核及程序设计(Linux命令复习)
 * 高可用可伸缩微服务架构：基于Dubbo、SpringCloud和Service Mesh
 
-<!--
-* Nginx
-* Netty
-* Solr
-* Kafka
--->
+;* Nginx
+;* Netty
+;* Solr
+;* Kafka
 
 May 4,2019 (近期)
 ---
