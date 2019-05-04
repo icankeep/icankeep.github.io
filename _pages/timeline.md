@@ -9,23 +9,36 @@ redirect_from:
 <hr/>
 To Do List
 ===
-* 💾 SQL优化
-* 📚 Linux
-- ☕️ ZooKeeper
-* 🎨 Netty
-* ☁️ Redis设计与实现
-* ⭐️ Solr
-* ✏️ Kafka
-* 编译原理
+* 软工作业(UML总结及大作业)
+* 人工智能及其应用(完成大作业)
+* 网络存储技术论文
+* 高并发项目(急!!!)
+* Maven实战(急!!)
+* Redis实现与设计
+* 编译原理(做一个编译器)
+* 数据库复习整理(优化相关)
+* TCP/IP详解卷1
+* 图解HTTP
+* 计算机网络复习重新整理博客
+* ZooKeeper重新复习整理(相关算法(Paxos算法)论文)
+* 可伸缩服务架构 框架与中间件(Dubbo)
 * 分布式消息中间件实践
-* 可伸缩服务架构 框架与中间件
-* 分布式系统设计
-* 数据通信与网络复习
-* Head First Java
-* 人工智能及其应用
-* Nginx
-* Maven实战
+* 分布式系统概念与设计
+* Head First Java / Effective Java / Java编程思想
+* Linux内核及程序设计(Linux命令复习)
 * 高可用可伸缩微服务架构：基于Dubbo、SpringCloud和Service Mesh
+* Nginx
+* Netty
+* Solr
+* Kafka
+
+May 4,2019 (近期)
+---
+- 计算机网络大致阅读完毕(待二次整理)
+- 算法复习至410页
+- 红宝书背了两个list
+- LeetCode二刷整理了三十道题
+- 六级视频看了五个
 
 April 23, 2019（近期）
 ---
@@ -80,6 +93,7 @@ March 20, 2019
 
 Completed
 ---
+- 计算机网络(谢希仁)
 - 鸟哥的Linux私房菜
 - 从Paxos到Zookeeper:分布式一致性原理与实践
 - DocStorm
