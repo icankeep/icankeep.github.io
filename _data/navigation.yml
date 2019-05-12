@@ -15,8 +15,8 @@ main:
   - title: "Dev"
     url: /dev-year-archive/
 
-  - title: "Problem"
-    url: /
+  - title: "LeetCode"
+    url: /leetcode
 
   - title: "Share"
     url: /share

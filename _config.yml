@@ -175,7 +175,7 @@ collections:
   dev:
     output: true
     permalink: /:collection/:path/
-  problems:
+  leetcode:
     output: true
     permalink: /:collection/:path/
   daily:
@@ -221,7 +221,7 @@ defaults:
   # _problems
   - scope:
       path: ""
-      type: problems
+      type: leetcode
     values:
       layout: single
       author_profile: true
