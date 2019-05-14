@@ -1,10 +1,10 @@
 ---
 layout: archive
 title: "NeteaseCloudMusicApi"
-permalink: /music-api-doc/
+permalink: /musicapi/
 author_profile: true
 redirect_from:
-  - /music-api-doc
+  - /musicapi
 ---
 
 ## 目录
