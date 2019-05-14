@@ -136,7 +136,7 @@ redirect_from:
 
 调用接口url: `服务器ip + 接口地址即可`
 
-如: `http://47.100.45.234//login/cellphone?phone=xxx&password=yyy`
+如: `http://47.100.45.234/login/cellphone?phone=xxx&password=yyy`
 
 ## 接口文档
 
