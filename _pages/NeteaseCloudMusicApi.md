@@ -637,7 +637,7 @@ category Code 取值:
 ### 获取歌单详情
 
 说明 : 歌单能看到歌单名字 , 但看不到具体歌单内容 , 调用此接口 , 传入歌单 id, 可
-以获取对应歌单内的所有的音乐，但是返回的trackIds是完整的，tracks 则是不完整的，可拿全部 trackIds 请求一次 `song/detail` 接口获取所有歌曲的详情 
+以获取对应歌单内的所有的音乐，但是返回的trackIds是完整的，tracks 则是不完整的，可拿全部 trackIds 请求一次 `song/detail` 接口获取所有歌曲的详情
 
 **必选参数 :** `id` : 歌单 id
 
@@ -653,7 +653,7 @@ category Code 取值:
 说明 : 使用歌单详情接口后 , 能得到的音乐的 id, 但不能得到的音乐 url, 调用此接口
 , 传入的音乐 id( 可多个 , 用逗号隔开 ), 可以获取对应的音乐的 url( 不需要登录 )
 
-> 注 : 部分用户反馈获取的 url 会 403,[hwaphon](https://github.com/hwaphon)找到的
+> 注 : 获取的 url 会 403
 > 解决方案是当获取到音乐的 id 后，将
 > https://music.163.com/song/media/outer/url?id=id.mp3 以 src 赋予 Audio 即可播放
 
