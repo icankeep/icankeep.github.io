@@ -4,7 +4,7 @@ title: "NeteaseCloudMusicApi"
 permalink: /musicapi/
 author_profile: true
 redirect_from:
-  - /musicapi
+  - /musicapi.html
 ---
 
 ## 目录
