@@ -7,6 +7,8 @@ tags:
   - nodejs
 ---
 
+npm和nodejs的安装
+
 # 安装最新版nodejs
 
 ## 更新ubuntu软件源

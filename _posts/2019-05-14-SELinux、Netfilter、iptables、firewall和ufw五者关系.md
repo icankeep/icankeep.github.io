@@ -10,6 +10,8 @@ tags:
   - ufw
 ---
 
+有点疑惑ufw和iptables的关系，就百度了一下，整出这五个，SELinux、Netfilter、iptables、firewall和ufw
+
 ## 一、五者是什么？
 1. SELinux是美国国家安全局发布的一个强制访问控制系统
 2. Netfilter是Linux 2.4.x引入的一个子系统，作为一个通用的、抽象的框架，提供一整套的hook函数的管理机制
