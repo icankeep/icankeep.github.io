@@ -28,7 +28,9 @@ tags:
 5. iptables是Linux下功能强大的应用层防火墙工具, 说到iptables必然提到Netfilter，iptables是应用层的，其实质是一个定义规则的配置工具，而核心的数据包拦截和转发是Netfiler。Netfilter是Linux操作系统核心层内部的一个数据包处理模块
 
 iptables和Netfilter关系图：
+
 ![iptables和Netfilter关系图](http://i1.bvimg.com/687356/227c71b0905cc644.png)
  
 iptables和fillwall关系图：
+
 ![iptables和fillwall关系图](http://i1.bvimg.com/687356/88c4781962a34199.png)
