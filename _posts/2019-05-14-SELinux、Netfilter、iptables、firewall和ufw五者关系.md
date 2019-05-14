@@ -31,6 +31,6 @@ tags:
 
 ![iptables和Netfilter关系图](http://i1.bvimg.com/687356/227c71b0905cc644.png)
  
-- iptables和fillwall关系图：
+- iptables和firewall关系图：
 
 ![iptables和fillwall关系图](http://i1.bvimg.com/687356/88c4781962a34199.png)
