@@ -1,0 +1,17 @@
+上海东方滨江大酒店(国际会议中心)
+
+                    
+<div class="hvt-box">
+    <i class="ebk3-ico ebk3-ico-quesMark"></i>
+    <div style="width:200px;background-color: #fff;z-index: 10;text-align: left;" class="ebk3-simple-tip ebk3-simple-tip-info">
+        <p class="mb10">{MIPPyramid:087 智能投放}:{MIPPyramid:085 默认投放城市、商圈、星级、商圈+星级四个场景，以当前出价，参与四个场景竞价}</p>
+        <p>{MIPPyramid:088 定向投放}:{MIPPyramid:086 可定向投放所选场景，参与竞价投放}</p>
+    </div>  
+</div>
+
+<span class="hint-text topRight-arrow sale-tip" style="width:205px;">各售卖渠道有不同房型售卖状态<br>上线 : B2B、ChannelA、Qunar<br>无效 : Ctrip</span>
+
+<p>{MIPPyramid:132 当用户在酒店列表搜索包含以下场景时，您的酒店将会出现在广告位}</p>
+                                <p>{MIPPyramid:133 1.酒店所属“商圈”}</p>
+                                <p>{MIPPyramid:134 2.酒店所属“星级”}</p>
+                                <p>{MIPPyramid:135 3.酒店所属“城市”下除“商圈”、“星级”外的其他查询场景}</p>

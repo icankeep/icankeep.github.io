@@ -1,0 +1,43 @@
+.modify-price-success-icon{
+    height: 26px;
+    background-image: url(//pic.c-ctrip.com/ebooking/web/un_ebk3_header.png?20160812);
+    background-position: 119px 0px;
+    width: 19px;
+    float: left;
+    background-size: 196px;
+}
+.modify-price-failed-icon{
+    height: 26px;
+    background-image: url(//pic.c-ctrip.com/ebooking/web/un_ebk3_header.png?20160812);
+    background-position: 119px -25px;
+    width: 19px;
+    float: left;
+    background-size: 196px;
+}
+
+
+
+
+.modify-price-success-icon{
+    height: 17px;
+    background-image: url(//pic.c-ctrip.com/ebooking/web/un_ebk3_header.png?20160812);
+    background-position: 97px 0px;
+    width: 17px;
+    position: relative;
+    left: -8px;
+    bottom: -3px;
+    display: inline-block;
+    background-size: 157px;
+}
+
+.modify-price-failed-icon{
+    height: 18px;
+    background-image: url(//pic.c-ctrip.com/ebooking/web/un_ebk3_header.png?20160812);
+    background-position: 97px -19px;
+    width: 17px;
+    position: relative;
+    left: -8px;
+    bottom: -3px;
+    display: inline-block;
+    background-size: 157px;
+}
