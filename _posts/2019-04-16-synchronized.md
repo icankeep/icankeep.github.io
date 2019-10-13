@@ -2,13 +2,12 @@
 title: 'synchronized实现底层'
 date: 2019-04-16
 permalink: /posts/2019/04/synchronized实现底层/
+excerpt: 'synchronized 关键字使用、底层原理、JDK1.6之后的底层优化以及和ReenTrantLock 的对比'
 tags:
   - synchronized
   - 锁
   - 并发
 ---
-
-synchronized 关键字使用、底层原理、JDK1.6之后的底层优化以及和ReenTrantLock 的对比
 
 ![synchronized 关键字使用、底层原理、JDK1.6 之后的底层优化以及 和ReenTrantLock 的对比](https://github.com/icankeep/icankeep.github.io/tree/master/images/blog/201904/synchronized.png)
 

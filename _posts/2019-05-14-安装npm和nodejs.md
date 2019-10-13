@@ -2,12 +2,11 @@
 title: '安装npm和nodejs'
 date: 2019-05-14
 permalink: /posts/2019/05/安装npm和nodejs/
+excerpt: 'npm和nodejs的安装'
 tags:
   - npm
   - nodejs
 ---
-
-npm和nodejs的安装
 
 # 安装最新版nodejs
 

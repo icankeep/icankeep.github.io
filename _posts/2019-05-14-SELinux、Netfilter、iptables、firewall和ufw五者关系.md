@@ -2,6 +2,7 @@
 title: 'SELinux、Netfilter、iptables、firewall和ufw五者关系'
 date: 2019-05-14
 permalink: /posts/2019/05/SELinux、Netfilter、iptables、firewall和ufw五者关系/
+excerpt: '有点疑惑ufw和iptables的关系，就百度了一下，整出这五个，SELinux、Netfilter、iptables、firewall和ufw'
 tags:
   - SELinux
   - Netfilter
@@ -9,8 +10,6 @@ tags:
   - firewall
   - ufw
 ---
-
-有点疑惑ufw和iptables的关系，就百度了一下，整出这五个，SELinux、Netfilter、iptables、firewall和ufw
 
 ## 一、五者是什么？
 1. SELinux是美国国家安全局发布的一个强制访问控制系统

@@ -2,14 +2,13 @@
 title: 'Semaphore-CountDownLatch-CyclicBarrier'
 date: 2019-04-14
 permalink: /posts/2019/04/Semaphore-CountDownLatch-CyclicBarrier/
+excerpt: '三种同步辅助工具类'
 tags:
   - Semaphore
   - CountDownLatch
   - CyclicBarrier
   - 同步工具类
 ---
-
-三种同步辅助工具类
 
 ## CountDownLatch （倒计时器）
 - CountDownLatch是一个同步工具类，它允许一个或多个线程等待其他线程完成操作。
