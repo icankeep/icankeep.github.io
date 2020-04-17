@@ -11,6 +11,7 @@ public static void hh() {
 public static void main(String[] args) {
   ((Main)null).hh();
 }
+```
 
 2.内存泄露
 ==
